@@ -55,3 +55,7 @@ class TagRegistry:
     async def remove_tag(self, name: str) -> bool:
         async with self._lock:
             return self._tags.pop(name, None) is not None
+
+    async def get_tag(self, name: str) -> Tag | None:
+        async with self._lock:
+            return self._tags.get(name)
