@@ -1,0 +1,55 @@
+drivers:
+- host: null
+  id: internal_driver
+  poll_interval: 1.0
+  port: null
+  tags:
+    Internal_Counter:
+      mode: counter
+      rate: 1.0
+  type: internal
+outputs:
+- config: {}
+  enabled: true
+  type: rest_api
+- config: {}
+  enabled: true
+  type: websocket
+project:
+  name: Demo Factory
+  version: '1.0'
+script:
+  content: ''
+settings:
+  log_level: INFO
+tags:
+- address: ''
+  disconnect_value: null
+  enabled: true
+  name: Temp_Reactor
+  path: Process/Reactor
+  poll_interval: 0.5
+  quality: Good
+  source: internal
+  type: float32
+  value: 75.2
+- address: ''
+  disconnect_value: null
+  enabled: true
+  name: Valve_Status
+  path: Process/Valves
+  poll_interval: null
+  quality: Good
+  source: internal
+  type: bool
+  value: false
+- address: ''
+  disconnect_value: null
+  enabled: true
+  name: Internal_Counter
+  path: System
+  poll_interval: null
+  quality: Unknown
+  source: internal
+  type: int32
+  value: 0
