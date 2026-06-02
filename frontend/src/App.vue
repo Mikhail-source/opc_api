@@ -8,6 +8,13 @@
     <el-main style="padding: 20px; overflow: auto; flex: 1;">
       <TagTree />
     </el-main>
+
+    <el-main style="padding: 20px; overflow: auto; flex: 1;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <TagTree />
+        <ScriptEditor />
+      </div>
+    </el-main>
   </el-container>
 </template>
 
@@ -17,6 +24,7 @@ import TagTree from './components/TagTree.vue'
 import { useServerStore } from './stores/server'
 import { useTagsStore } from './stores/tags'
 import { watch } from 'vue'
+import ScriptEditor from './components/ScriptEditor.vue'
 
 const serverStore = useServerStore()
 const tagsStore = useTagsStore()

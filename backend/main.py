@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.core.engine import Engine
-from backend.api import tags, server, projects
+from backend.api import tags, server, projects, script
 from backend.ws import handler
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)-7s] %(name)-12s │ %(message)s")
@@ -31,6 +31,7 @@ app.include_router(tags.router, prefix="/api/tags", tags=["tags"])
 app.include_router(server.router, prefix="/api/server", tags=["server"])
 app.include_router(projects.router, prefix="/api/projects", tags=["projects"])
 app.include_router(handler.router, prefix="/ws", tags=["websocket"])
+app.include_router(script.router, prefix="/api/script", tags=["script"])
 
 @app.get("/health")
 async def health():
